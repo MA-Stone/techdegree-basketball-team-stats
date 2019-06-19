@@ -1,4 +1,8 @@
+import os
 from constants import TEAMS, PLAYERS
+
+def clear_screen():
+    os.system("cls" if os.name == "nt" else "clear")
 
 def balance_players_to_team():
     teams_data = {team:[] for team in TEAMS}
@@ -28,7 +32,7 @@ def start():
     teams_data = balance_players_to_team()
 
     print("BASKETBALL TEAM STATS TOOL")
-    
+
     while(True):
         print()
         print("-------- MENU --------\n")
@@ -57,6 +61,7 @@ def start():
             print("You inputed wrong option!")
             
         input("Press Enter to continue...")
+        clear_screen()
 
 if __name__ == "__main__":
     start()
