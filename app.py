@@ -4,7 +4,14 @@ def balance_players_to_team():
     teams_data = {team:[] for team in TEAMS}
     team_index = 0
     for player in PLAYERS:
-        teams_data[TEAMS[team_index]].append(player)
+        teams_data[TEAMS[team_index]].append(
+            {
+                'name': player['name'],
+                'guardians': player['guardians'],
+                'experience': True if player['experience'] else False,
+                'height': int(player['height'][0:3])
+            }
+        )
         team_index = (team_index + 1) % len(TEAMS)
     return teams_data
 
